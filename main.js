@@ -5,7 +5,25 @@ const atividades = [];
 const notas = [];
 const spanAprovado = '<span class="resultado aprovado">Aprovado</span>';
 const spanReprovado = '<span class="resultado reprovado">Reprovado</span>';
-const notaMinima = parseFloat(prompt('Digite a nota mínima: '));
+
+let notaMinima;
+
+while (true) {
+    let entrada = prompt('Digite a nota mínima (de 0 a 10):');
+
+    if (entrada === null) {
+        alert('Você precisa definir uma nota mínima para continuar!');
+        continue; 
+    }
+
+    notaMinima = parseFloat(entrada.replace(',', '.'));
+
+    if (!isNaN(notaMinima) && notaMinima >= 0 && notaMinima <= 10) {
+        break; 
+    }
+
+    alert("Por favor, digite apenas números válidos entre 0 e 10.");
+}
 
 let linhas = '';
 
